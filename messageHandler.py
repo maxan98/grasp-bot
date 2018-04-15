@@ -34,8 +34,8 @@ def create_answer(data, token):
             message = 'Жду группу'
         if 'группа' in message or 'Группа' in message:
             gr = data['body'][7:]
-            db.execwrite("UPDATE SET users gr = '%s' WHERE vkid = %s"%(gr,user_id))
-            db.execwrite("UPDATE SET users pending = 'NULL' WHERE vkid = %s"%user_id)
+            db.execwrite("UPDATE users SET gr = '%s' WHERE vkid = %s"%(gr,user_id))
+            db.execwrite("UPDATE users SET pending = 'NULL' WHERE vkid = %s"%user_id)
             message = 'Твоя группа '+ gr
 
         db.close()
