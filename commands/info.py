@@ -4,7 +4,7 @@ def info():
     message = 'Вот то, что я умею на данный момент. Всяко лучше, чем быть одноглазым и с палкой в ноге :)'
     st = [d.description for d in command_system.command_list]
     desc = '\n'.join(st)
-    return message, ""
+    return message + '\n'+desc, ""
 info_command = command_system.Command()
 info_command.keys = ['info','help','помощь','инфа','информация','что умеешь']
 info_command.description = 'Расскажу о том, что я умею'
