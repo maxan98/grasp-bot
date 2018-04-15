@@ -40,9 +40,11 @@ def create_answer(data, token):
     if user_id not in answer[0]:
         print('GJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJ')
         db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','NULL') "%(user_id))
+        db.close()
 
    else:
     db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','NULL') "%(user_id))
+    db.close()
 
     # if pending == 'group':
     #     db = Database()
