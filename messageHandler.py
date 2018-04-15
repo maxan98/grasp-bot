@@ -37,7 +37,7 @@ def create_answer(data, token):
    answer = db.execread("SELECT vkid FROM users WHERE vkid = %s"%user_id)
    
    print(answer[0])
-   if user_id in answer[0]:
+   if user_id not in answer[0]:
     print('GJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJ')
     db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','NULL') "%(user_id))
     # if pending == 'group':
