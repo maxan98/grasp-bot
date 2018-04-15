@@ -2,7 +2,7 @@ import command_system
 
 def info():
     message = 'Вот то, что я умею на данный момент. Всяко лучше, чем быть одноглазым и с палкой в ноге :)'
-    st = [d.description +'['+d.keys+']' for d in command_system.command_list]
+    st = [d.description +'['+' '.join(d.keys)+']' for d in command_system.command_list]
     desc = '\n'.join(st)
     return message + '\n'+desc, ""
 info_command = command_system.Command()
