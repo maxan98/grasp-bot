@@ -25,6 +25,7 @@ def create_answer(data, token):
    user_id = data['user_id']
    message, attachment, pending = get_answer(data['body'].lower())
    vkapi.send_message(user_id, token, message, attachment)
-   db = Database()
-   db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
-   sb.close()
+   if pending == 'group':
+       db = Database()
+       db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
+       db.close()
