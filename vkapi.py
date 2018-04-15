@@ -1,4 +1,5 @@
 import vk
+import random
 
 session = vk.Session()
 api = vk.API(session, v=5.0)
