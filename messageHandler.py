@@ -28,7 +28,7 @@ def create_answer(data, token):
    if pending == 'group':
         db = Database()
         answer = db.execread("SELECT vkid FROM users WHERE vkid = %s"%user_id)
-        if answer != user_id
+        if answer != user_id:
             db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
         else:
             message = 'Жду группу'
@@ -39,4 +39,4 @@ def create_answer(data, token):
             message = 'Твоя группа '+ gr
 
         db.close()
-    vkapi.send_message(user_id, token, message, attachment)
+   vkapi.send_message(user_id, token, message, attachment)
