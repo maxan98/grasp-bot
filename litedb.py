@@ -8,7 +8,7 @@ class Database():
 		self.cur = self.con.cursor()
 	def execread(self,query):
 		self.cur.execute(query)
-		result = cur.fetchall()
+		result = self.cur.fetchall()
 		return result
 	def execwrite(self,query):
 		self.cur.execute(query)
