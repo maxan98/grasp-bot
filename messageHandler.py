@@ -24,8 +24,19 @@ def create_answer(data, token):
    load_modules()
    user_id = data['user_id']
    message, attachment, pending = get_answer(data['body'].lower())
-   vkapi.send_message(user_id, token, message, attachment)
+   
    if pending == 'group':
-       db = Database()
-       db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
-       db.close()
+        db = Database()
+        answer = db.execread("SELECT vkid FROM users WHERE vkid = %s"%user_id)
+        if answer != user_id
+            db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
+        else:
+            message = 'Жду группу'
+        if 'группа' in message or 'Группа' in message:
+            gr = data['body'][7:]
+            db.execwrite("UPDATE SET users gr = '%s' WHERE vkid = %s"%(gr,user_id))
+            db.execwrite("UPDATE SET users pending = 'NULL' WHERE vkid = %s"%user_id)
+            message = 'Твоя группа '+ gr
+
+        db.close()
+    vkapi.send_message(user_id, token, message, attachment)
