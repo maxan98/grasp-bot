@@ -3,7 +3,6 @@ import os
 import importlib
 from command_system import command_list
 from litedb import *
-def store_group():
 
 def load_modules():
    # путь от рабочей директории, ее можно изменить в настройках приложения
@@ -34,6 +33,11 @@ def create_answer(data, token):
    user_id = data['user_id']
    message, attachment, pending = get_answer(data)
    vkapi.send_message(user_id, token, message, attachment)
+   db = Database()
+   answer = db.execread("SELECT vkid FROM users WHERE vkid = %s"%user_id)
+   print(answer)
+   if answer != user_id:
+    db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','NULL') "%(user_id))
     # if pending == 'group':
     #     db = Database()
     #     db.execwrite("UPDATE users SET pending = 'group' WHERE vkid = %s"%user_id)
