@@ -23,7 +23,7 @@ def get_answer(data):
     if '/группа' in body or '/Группа' in body:
         gr = body[8:]
         db = Database()
-        db.execwrite("UPDATE users SET gr = '%s' WHERE vkid = %s"%(user_id,data['user_id']))
+        db.execwrite("UPDATE users SET gr = '%s' WHERE vkid = %s"%(data['user_id'],data['user_id']))
         db.close()
         message = 'Супер, теперь я буду знать что ты учишься в группе # '+gr
     return message, attachment, pending
