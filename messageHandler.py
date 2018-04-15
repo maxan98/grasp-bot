@@ -35,9 +35,10 @@ def create_answer(data, token):
    vkapi.send_message(user_id, token, message, attachment)
    db = Database()
    answer = db.execread("SELECT vkid FROM users WHERE vkid = %s"%user_id)
-   an, trash = answer[0]
-   print(an)
-   if an != user_id:
+   
+   print(answer[0])
+   if user_id in answer[0]:
+    print('GJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJGJ\nGJGJGJGJGJGJGJGJGJGJ')
     db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','NULL') "%(user_id))
     # if pending == 'group':
     #     db = Database()
