@@ -32,7 +32,7 @@ def create_answer(data, token):
             db.execwrite("insert into users values (NULL,%s,'RandUser',NULL,'user','%s') "%(user_id,pending))
         else:
             message = 'Жду группу'
-        if 'группа' in message or 'Группа' in message:
+        if 'группа' in data['body'] or 'Группа' in data['body']:
             gr = data['body'][7:]
             db.execwrite("UPDATE users SET gr = '%s' WHERE vkid = %s"%(gr,user_id))
             db.execwrite("UPDATE users SET pending = 'NULL' WHERE vkid = %s"%user_id)
