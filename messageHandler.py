@@ -38,10 +38,11 @@ def get_answer(data):
     message = "Прости, не понимаю тебя. Напиши 'помощь', чтобы узнать мои команды"
     attachment = ''
     pending = ''
+    body = data['body']
     distance = len(body)
     command = None
     key = ''
-    body = data['body']
+    
     for c in command_list:
         for k in c.keys:
            d = damerau_levenshtein_distance(body, k)
