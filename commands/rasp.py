@@ -7,7 +7,7 @@ def rasp(data):
     db.close()
     res = '' 
     if len(answer)>0:
-        child=sp.Popen(['grasp','-f','%s'%(answer[0])],stdout=sp.PIPE) 
+        child=sp.Popen(['grasp','-f','-g','%s'%(answer[0])],stdout=sp.PIPE) 
         s=' '
         
         while s: 
