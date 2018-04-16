@@ -1,6 +1,6 @@
 import command_system
 import vkapi
-def info():
+def info(data):
     message = 'Вот то, что я умею на данный момент. Всяко лучше, чем быть одноглазым и с палкой в ноге :)'
     st = [d.description +'['+' '.join(d.keys)+']' for d in command_system.command_list]
     desc = '\n'.join(st)

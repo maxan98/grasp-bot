@@ -16,10 +16,10 @@ def get_answer(data):
     message = "Прости, не понимаю тебя. Напиши 'помощь', чтобы узнать мои команды"
     attachment = ''
     pending = ''
-    body = data['body'].lower()
+    body = data['body']
     for c in command_list:
         if body in c.keys:
-            message, attachment, pending = c.process()
+            message, attachment, pending = c.process(data)
     if '/группа' in body or '/Группа' in body:
         gr = body[8:]
         db = Database()
