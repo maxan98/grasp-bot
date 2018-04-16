@@ -16,6 +16,6 @@ def tomorrow(data):
     message = res+' Если тут пусто - вероятно ты еще не задал номер своей группы(/группа xxxx)'
     return message, "", None
 tomorrow_command = command_system.Command()
-tomorrow_command.keys = ['завтра','Завтра','tom','Tom']
+tomorrow_command.keys = ['Завтра','Tom']
 tomorrow_command.description = 'Расписание на завтра'
 tomorrow_command.process = tomorrow

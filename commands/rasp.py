@@ -16,6 +16,6 @@ def rasp(data):
     message = res+' \nЕсли тут пусто - вероятно ты еще не задал номер своей группы(/группа xxxx)'
     return message, "", None
 rasp_command = command_system.Command()
-rasp_command.keys = ['расписание','расп','полное','tt','rasp','timetable','Расписание','Полное']
+rasp_command.keys = ['расписание','Полное']
 rasp_command.description = 'Полное расписание твоей группы'
 rasp_command.process = rasp

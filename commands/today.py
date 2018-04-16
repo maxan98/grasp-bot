@@ -16,6 +16,6 @@ def today(data):
     message = res+' \nЕсли тут пусто - вероятно ты еще не задал номер своей группы(/группа xxxx)'
     return message, "", None
 today_command = command_system.Command()
-today_command.keys = ['сегодня','с','сег','Сеголня','С','Сег']
+today_command.keys = ['сегодня']
 today_command.description = 'Расписание на сегодня'
 today_command.process = today
