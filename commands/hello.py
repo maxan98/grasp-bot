@@ -7,6 +7,6 @@ def hello(data):
     '''
     return message, "", None
 hello_command = command_system.Command()
-hello_command.keys = ['привет','здорово','хай','ку','здравствуй','здравствуйте']
+hello_command.keys = ['привет','здорово','хай','ку','здравствуй','здравствуйте','Привет','Здорво','Хай','Ку','Здравствуй','Здравствуйте']
 hello_command.description = 'Начать попиздошки с ботом'
 hello_command.process = hello

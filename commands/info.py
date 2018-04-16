@@ -7,6 +7,6 @@ def info(data):
     #attachment = vkapi.get_wall_picture()
     return message + '\n'+desc, "", None
 info_command = command_system.Command()
-info_command.keys = ['info','help','помощь','инфа','информация','что умеешь']
+info_command.keys = ['info','help','помощь','инфа','информация','что умеешь','Info','Help','Помощь','Инфа','Информация']
 info_command.description = 'Расскажу о том, что я умею'
 info_command.process = info
