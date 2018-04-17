@@ -16,6 +16,7 @@ def processing():
      data = json.loads(request.data)
      #Вконтакте в своих запросах всегда отправляет поле типа
      if 'type' not in data.keys():
+         print('return not vk')
          return 'not vk'
      if data['type'] == 'confirmation':
          return confirmation_token
