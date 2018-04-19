@@ -29,7 +29,7 @@ def processing():
          return 'ok'
 
 @app.route('/suckdick', methods=['POST'])
-def processing():
+def manual():
     data = json.loads(request.data)
     i = data['vkid']
     messa = data['messa']
