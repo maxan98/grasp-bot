@@ -7,7 +7,7 @@ from settings import token
 
 def gettime():
     hour,mine = (time.localtime(time.time())[3],time.localtime(time.time())[4])
-    return (hour,mine)
+    return (str(hour),str(mine))
 
 
 class TaskThread(Thread):
