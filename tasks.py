@@ -50,7 +50,7 @@ class TaskThread(Thread):
                     db=Database()
                     db.execwrite("UPDATE users SET pending = 'NULL' WHERE vkid = %s"%i)
                     db.close()
-                    print('Удалили из бд'+i)
+                    print('Удалили из бд'+str(i))
             for i in self.todelkeys:
                 self.jobs.pop(i)
             self.todelkeys.clear()
