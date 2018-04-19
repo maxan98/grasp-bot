@@ -16,6 +16,7 @@ class TaskThread(Thread):
         self.stopped = event
         self.jobs = {}
         self.keys = []
+        self.todelkeys = []
 
     def run(self):
         while not self.stopped.wait(60.0):
@@ -43,9 +44,12 @@ class TaskThread(Thread):
                     y = '0'+y
                 print(hour,mine,messa,x,y)
                 if x == hour and y == mine:
-                    vkapi.send_message(i, token, messa, '')
-                    self.jobs.pop(i)
+                    vkapi.send_message('!!!НАПОМИНАНИЕ!!!\n'+i, token, messa, '')
+                    self.todelkeys.append(i)
                     print('Напомнили', i,messa)
+            for i in self.todelkeys:
+                self.jobs.pop(i)
+            todelkeys.clear()
 
 
 
