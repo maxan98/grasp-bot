@@ -36,6 +36,11 @@ class TaskThread(Thread):
                     mine = '0'+mine
                 messa = self.jobs[i][18:]
                 x, y = gettime()
+                if len(x) == 1:
+                    x = '0'+x
+
+                if len(y) == 1:
+                    y = '0'+y
                 print(hour,mine,messa,x,y)
                 if x == hour and y == mine:
                     vkapi.send_message(i, token, messa, '')
