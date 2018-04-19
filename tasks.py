@@ -29,7 +29,11 @@ class TaskThread(Thread):
                 print(self.jobs)
             for i in self.keys:
                 hour = self.jobs[i][12:14]
+                if len(hour) == 1:
+                    hour = '0'+hour
                 mine = self.jobs[i][15:17]
+                if len(mine) == 1:
+                    mine = '0'+mine
                 messa = self.jobs[i][18:]
                 x, y = gettime()
                 print(hour,mine,messa,x,y)
