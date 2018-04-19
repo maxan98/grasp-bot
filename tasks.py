@@ -49,7 +49,7 @@ class TaskThread(Thread):
                     print('Напомнили', i,messa)
             for i in self.todelkeys:
                 self.jobs.pop(i)
-            todelkeys.clear()
+            self.todelkeys.clear()
 
 
 
