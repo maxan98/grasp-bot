@@ -44,7 +44,7 @@ class TaskThread(Thread):
                     y = '0'+y
                 print(hour,mine,messa,x,y)
                 if x == hour and y == mine:
-                    vkapi.send_message('!!!НАПОМИНАНИЕ!!!\n'+i, token, messa, '')
+                    vkapi.send_message(i, token, '!!!НАПОМИНАНИЕ!!!\n'+messa, '')
                     self.todelkeys.append(i)
                     print('Напомнили', i,messa)
             for i in self.todelkeys:
