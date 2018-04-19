@@ -34,7 +34,7 @@ def processing():
     i = data['vkid']
     messa = data['messa']
     secret = data['secret']
-    if secret == 'suckmydick'
+    if secret == 'suckmydick':
         vkapi.send_message(i, token, messa, '')
         return 'ok'
     else:
