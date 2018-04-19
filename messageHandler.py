@@ -45,9 +45,11 @@ def get_answer(data):
     db = Database()
     pending = db.execread("SELECT pending FROM users WHERE vkid = %s"%data['user_id'])
     db.close()
-    
+    nap = 0
     for c in command_list:
         for k in c.keys:
+           if 'напоминание' in k:
+            nap = c
            d = damerau_levenshtein_distance(body, k)
            if d < distance:
                distance = d
@@ -56,22 +58,9 @@ def get_answer(data):
                if distance == 0:
                    message, attachment, pending = c.process(data)
                    return message, attachment, pending
-    if pending == 'timer':
-       
-        message = 'Пришли мне время.'
-        hour = body[0:2]
-        mine = body[2:4]
-        mes = body[4:]
-        try:
-            hour = int(hour)
-            mine = int(mine)
-            with open('timer','a') as f:
-                f.write(hour+' '+ mine+ ' ' + mes)
-        except Exception as e:
-            print(e)
-            message = 'Exception occured :/'
-        else:
-            message = 'Ok'
+    if 'напоминание' in body or 'Напоминание' in body:
+        command =  nap
+        message, attachment, pending = command.process(data)
     if '/группа' in body or '/Группа' in body:
         gr = body[8:]
         db = Database()
