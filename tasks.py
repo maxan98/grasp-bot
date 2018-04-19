@@ -47,6 +47,10 @@ class TaskThread(Thread):
                     vkapi.send_message(i, token, '!!!НАПОМИНАНИЕ!!!\n'+messa, '')
                     self.todelkeys.append(i)
                     print('Напомнили', i,messa)
+                    db=Database
+                    db.execwrite("UPDATE users SET pending = 'NULL' WHERE vkid = %s"%(i))
+                    db.close()
+                    print('Удалили из бд'+i)
             for i in self.todelkeys:
                 self.jobs.pop(i)
             self.todelkeys.clear()
