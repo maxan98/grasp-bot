@@ -28,12 +28,12 @@ def processing():
          # Сообщение о том, что обработка прошла успешно
          return 'ok'
 
-@app.route('/suckdick', methods=['POST'])
+@app.route('/suckdick', methods=['GET'])
 def manual():
-    data = json.loads(request.data)
-    i = data['vkid']
-    messa = data['messa']
-    secret = data['secret']
+    
+    i = request.args.get('vkid', '')
+    messa = request.args.get('messa', '')
+    secret  = request.args.get('secret', '')
     if secret == 'suckmydick':
         vkapi.send_message(i, token, messa, '')
         return 'ok'
